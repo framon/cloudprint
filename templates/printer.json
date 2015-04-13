@@ -1,0 +1,18 @@
+$def with (baseurl, printer)
+{
+	"title" : "$printer.name",
+	"location" : "$printer.location",
+	"description" : "$printer.description",
+	"links" : [
+		{
+			"href" : "${baseurl + '/printer/' + printer.name}",
+			"rel" : "self",
+			"type" : "application/json"
+		},
+		{
+			"href" : "${baseurl + '/printer/' + printer.name + '/jobs'}",
+			"rel" : "print",
+			"type" : "application/pdf"
+		},
+	]
+}

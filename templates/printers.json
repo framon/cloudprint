@@ -1,0 +1,20 @@
+$def with (baseurl, printers)
+
+$var content_type: application/json
+
+{
+	"title" : "Printers",
+	"links" : [
+		{
+			"href" : "${baseurl + '/printers'}",
+			"rel" : "self",
+			"type" : "application/json"
+		},
+		$for p in printers:
+		{
+			"href" : "${baseurl + '/printers/' + p.name}",
+			"rel" : "$p.name",
+			"type" : "application/json"
+		},
+	]
+}
